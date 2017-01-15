@@ -1,0 +1,33 @@
+//
+//  FDASLocalized.pch
+//  FDLocalizedDemo
+//
+//  Created by 徐忠林 on 14/01/2017.
+//  Copyright © 2017 Feyddy. All rights reserved.
+//
+
+#ifndef FDASLocalized_pch
+#define FDASLocalized_pch
+
+
+
+//这个方法实现多语言本地化，意味着你的多语言文件名字必须是Localizable,否则你的多语言实现，到最后显示的却只能是key；适合于，让应用跟随系统的语言版本进行切换，而用户却不能手动进行切换
+#define NSLocalizedString(key, comment) \
+[[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
+#define NSLocalizedStringFromTable(key, tbl, comment) \
+[[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:(tbl)]
+
+#define NSLocalizedStringFromTableInBundle(key, tbl, bundle, comment) \
+[bundle localizedStringForKey:(key) value:@"" table:(tbl)]
+
+#define NSLocalizedStringWithDefaultValue(key, tbl, bundle, val, comment) \
+[bundle localizedStringForKey:(key) value:(val) table:(tbl)]
+
+#import "FDLanguageUtil.h"
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* FDASLocalized_pch */
